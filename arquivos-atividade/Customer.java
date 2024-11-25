@@ -26,20 +26,13 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
 
-            // Show figures for this rental
             result += "\t" + each.getMovie().getTitle() + "\t" + each.getCharge() + "\n";
 
-            // Add frequent renter points
-            frequentRenterPoints++;
-            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-                each.getDaysRented() > 1)
-                frequentRenterPoints++;
+            frequentRenterPoints += each.getFrequentRenterPoints();
 
-            // Total amount for each rental is added directly
             totalAmount += each.getCharge();
         }
 
-        // Add footer lines
         result += "Amount owed is " + totalAmount + "\n";
         result += "You earned " + frequentRenterPoints + " frequent renter points";
         return result;
