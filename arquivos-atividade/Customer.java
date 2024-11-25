@@ -35,6 +35,7 @@ public class Customer {
                 each.getDaysRented() > 1)
                 frequentRenterPoints++;
 
+            // Total amount for each rental is added directly
             totalAmount += each.getCharge();
         }
 
